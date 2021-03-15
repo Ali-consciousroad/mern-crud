@@ -1,0 +1,7 @@
+node -v                                     Give node version
+
+npx kill-port xxxx                          kill port xxxx
+npx create-react-app appName                create a react app
+
+npm init -y (from our server folder)        Create a package.json file
+npm start                                   Start the app 
