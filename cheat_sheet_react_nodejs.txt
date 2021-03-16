@@ -1,7 +1,15 @@
 node -v                                     Give node version
+(1) node myFile.js                          Launch the node server based on the selected file
+(1') nodemon myFile.js                      Do the same but with autoload feature on port 8000
 
 npx kill-port xxxx                          kill port xxxx
 npx create-react-app appName                create a react app
 
 npm init -y (from our server folder)        Create a package.json file
-npm start                                   Start the app 
+(2) npm start (from the client folder)      Start the app on the port 3000
+    
+which node				    Show where node.js has beed installed
+
+node					    Enter the Node (read, evaluate, print, loop) REPL
+console.log(global)			    Access the global object (from the REPL)
+
