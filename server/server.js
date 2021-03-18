@@ -1,13 +1,16 @@
-const express = require('express')
-const morgan = require('morgan')
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const mongoose = require('mongoose')
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const mongoose = require('mongoose');
 // Make it possible to access the .env file
-require('dotenv').config()
+require('dotenv').config();
+
+//import routes
+const postRoutes = require('./routes/post');
 
 // app
-const app = express()
+const app = express();
 
 // db config for mongoDBAtlas
 // Config we will always have to use with mongoose
@@ -27,12 +30,8 @@ app.use(cors())
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 
-// route
-app.get('*', (req, res) => {
-  res.json({
-    data: 'You reached nodejs api for react node crud app test'
-  })
-})
+// route middleware
+app.use('/api', postRoutes);
 
 // port
 const port = process.env.PORT || 8000
