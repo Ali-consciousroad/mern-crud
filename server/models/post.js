@@ -28,7 +28,7 @@ const postSchema = new mongoose.Schema({
       type: String,
       default: 'Admin'
     }
-  }, {timestramps: true}
+  }, {timestamps: true}
 );
 
 module.exports = mongoose.model('Post', postSchema)
