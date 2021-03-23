@@ -1,15 +1,18 @@
 import React from 'react';
-import { BrowsereRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import App from './App';
+import Create from './Create';
+
 
 const Routes = () => {
   return (
-    <BrowsereRoute>
-      <switch>
+    <BrowserRoute>
+      <Switch>
+        <Route path="/" exact component={App} />
         <Route path="/create" exact component={Create} />
-      </switch>
-    </BrowsereRoute>
+      </Switch>
+    </BrowserRoute>
   );
 };
 
-export default Routes; 
+export default Routes;
