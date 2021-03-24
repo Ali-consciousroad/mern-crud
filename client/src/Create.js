@@ -3,7 +3,6 @@ import React from 'react';
 const Create = () => (
   <div className="container p-5">
     <h1>CREATE POST</h1>
-
     <form>
 
       <div className="form-group">

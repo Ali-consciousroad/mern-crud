@@ -11,5 +11,4 @@ const { create } = require('../controllers/post');
 // Changed from router.get -> router.post to test the api post request with Postman
 router.post('/post', create);
 
-//
 module.exports = router;

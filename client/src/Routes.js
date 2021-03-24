@@ -1,17 +1,23 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import App from './App';
 import Create from './Create';
 
 
 const Routes = () => {
   return (
-    <BrowserRoute>
+    <Router>
       <Switch>
         <Route path="/" exact component={App} />
         <Route path="/create" exact component={Create} />
       </Switch>
-    </BrowserRoute>
+    </Router>
   );
 };
 
