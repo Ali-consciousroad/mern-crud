@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import Nav from './Nav';
+
+
 // Arrow function: Parenthesis will word only with one statement otherwise we need to use brackets.
 const Create = () => {
 
@@ -52,7 +55,10 @@ const Create = () => {
 
 
   return (
-    <div className="container p-5">
+    <div className="container pb-5">
+      {/* Add the navigation bar */}
+      <Nav />
+      <br/>
       <h1>CREATE POST</h1>
       {/* Second way to show state: Display state information directly inside our /create page */}
       {/* {JSON.stringify(state)} */}
