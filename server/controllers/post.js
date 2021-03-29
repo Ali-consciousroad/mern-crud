@@ -40,6 +40,17 @@ exports.create = (req, res) => {
       }
       res.json(post);
     });
+};
 
-
+// List method
+exports.list = (req, res) => {
+    Post.find({})
+      // Limit the number of posts
+      .limit(4)
+      // Sort the post base on the date of creation (latest post will come first)
+      .sort({ createdAt: -1})
+      .exec((err, posts) => {
+      if (err) console.log(err);
+      res.json(posts);
+    });
 };
