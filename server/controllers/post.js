@@ -54,3 +54,14 @@ exports.list = (req, res) => {
       res.json(posts);
     });
 };
+
+// Read method - single post based on slug
+exports.read = (req, res) => {
+    // Test
+    // console.log(req.params.slug);
+    const { slug } = req.params;
+    Post.findOne({ slug }).exec((err, post) => {
+      if (err) console.log(err);
+      res.json(post);
+    });
+};
