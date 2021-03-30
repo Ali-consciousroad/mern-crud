@@ -57,11 +57,34 @@ exports.list = (req, res) => {
 
 // Read method - single post based on slug
 exports.read = (req, res) => {
-    // Test
-    // console.log(req.params.slug);
-    const { slug } = req.params;
-    Post.findOne({ slug }).exec((err, post) => {
-      if (err) console.log(err);
-      res.json(post);
+  // Test
+  // console.log(req.params.slug);
+  const { slug } = req.params;
+  Post.findOne({ slug }).exec((err, post) => {
+    if (err) console.log(err);
+    res.json(post);
+  });
+};
+
+// Update method
+exports.update = (req, res) => {
+  const { slug } = req.params;
+  const { title, content, user } = req.body;
+  Post.findOneAndUpdate({ slug }, { title, content, user }, { new: true }).exec((err, post) => {
+    if (err) console.log(err);
+    res.json(post);
+  });
+};
+
+// Delete method -
+exports.remove = (req, res) => {
+  // Test
+  // console.log(req.params.slug);
+  const { slug } = req.params;
+  Post.findOneRemove({ slug }).exec((err, post) => {
+    if (err) console.log(err);
+    res.json({
+      message: 'Post deleted'
     });
+  });
 };
