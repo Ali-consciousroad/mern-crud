@@ -81,7 +81,7 @@ exports.remove = (req, res) => {
   // Test
   // console.log(req.params.slug);
   const { slug } = req.params;
-  Post.findOneRemove({ slug }).exec((err, post) => {
+  Post.findOneAndRemove({ slug }).exec((err, post) => {
     if (err) console.log(err);
     res.json({
       message: 'Post deleted'
