@@ -14,7 +14,7 @@ import Nav from './Nav';
 const Routes = () => {
   return (
     <Router>
-      <div className="container">
+      <div className="container-fluid">
         <Nav />
         <Switch>
           <Route path="/" exact component={App} />

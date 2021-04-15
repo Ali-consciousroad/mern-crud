@@ -13,11 +13,7 @@ const PostListWrapper = () => {
   
   const postMap = useSelector(state => state.post.postMap)
   
-
-  
   return <PostList postList={Object.values(postMap)}/>
-  
-
 
 }
 

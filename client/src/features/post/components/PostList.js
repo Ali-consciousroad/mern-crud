@@ -2,7 +2,9 @@ import React from 'react';
 import Post from './Post';
 import PostControlButtons from './PostControlButtons';
 
-const PostList = ({ postList, onDelete, onUpdate }) => {
+const PostList = ({ postList }) => {
+  
+  // const post = { title: "toto", content:'truc', user: 'author'}
 
   return (<>
     { postList.map(post => (

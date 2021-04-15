@@ -96,9 +96,11 @@ export const postSlice = createSlice({
           
       })
       .addCase(updateAsync.fulfilled, (state, action) => {
+        
         state.status = 'idle';
-
-        state.value += action.payload;
+        const update = action.payload
+        const slug = action.meta.arg
+        state.postMap = { ...state.postMap, [slug]: update };
       })
       .addCase(updateAsync.rejected, (state, action) => {
         state.error = action.error;

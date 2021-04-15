@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateAsync } from './postSlice';
 
 import PostForm from './components/PostForm';
+import PostListWrapper from './components/PostListWrapper';
 
 
 const UpdatePost = (props) => {
@@ -13,13 +14,21 @@ const UpdatePost = (props) => {
   const post = postMap[postSlug];
   
   const updatePost = (update) => {
-    dispatch(updateAsync({ postSlug, update }))
+  dispatch(updateAsync({ postSlug, update }))
   }
 
   return (
-    <div className="container pt-5">
+    <div className="pt-5">
       <h1>UPDATE POST</h1>
-      <PostForm initial={{ ...post }} submitLabel="Updat" onSubmit={updatePost} />
+      <div className="row">
+        <div className="col-6">
+          <PostListWrapper />
+        </div>
+        <div className="col-6">
+          <PostForm initial={{ ...post }} submitLabel="Update" onSubmit={updatePost} />
+        </div>
+      </div>
+
     </div>
   );
 };

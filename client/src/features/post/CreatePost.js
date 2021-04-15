@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { createAsync } from './postSlice';
 
 import PostForm from './components/PostForm';
+import PostListWrapper from './components/PostListWrapper';
 
 
 const CreatePost = (props) => {
@@ -13,9 +14,16 @@ const CreatePost = (props) => {
   }
 
   return (
-    <div className="container pt-5">
+    <div className="pt-5">
       <h1>Create POST</h1>
-      <PostForm  submitLabel="Create" onSubmit={createPost} />
+      <div className="row">
+        <div className="col-6">
+          <PostListWrapper />
+        </div>
+        <div className="col-6">
+          <PostForm submitLabel="Create" onSubmit={createPost} />
+        </div>
+      </div>
     </div>
   );
 };

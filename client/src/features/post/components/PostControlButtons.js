@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteAsync } from '../postSlice';
 import { Link } from 'react-router-dom';
+import Button from '../../../components/Button';
 
 const PostControlButtons = ({ slug }) => {
   
@@ -17,16 +18,20 @@ const PostControlButtons = ({ slug }) => {
   
   return (
     <div className="">
-      <Link className="btn btn-sm btn-outline-warning"
-        to={`/post/update/${slug}`} >
+      <Button variant='outline-warning'>
+        <Link
+          className="text-dark"
+          to={`/post/update/${slug}`} >
           Update
-      </Link>
-      <button
-        className="btn btn-sm btn-outline-danger ml-1"
-        onClick={deleteConfirm}
-          >
-          Delete
-                </button>
+        </Link>
+      </Button>
+
+      <Button variant='outline-danger' onClick={deleteConfirm}>
+        Delete
+      </Button>
+
+          
+            
     </div>
   )
 }
