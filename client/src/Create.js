@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import Nav from './Nav'
+import React, { useState } from 'react';
+import axios from 'axios';
+import Nav from './Nav';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.bubble.css';
 
 // Arrow function: Parenthesis will word only with one statement otherwise we need to use brackets.
 const Create = () => {
@@ -8,12 +10,19 @@ const Create = () => {
   // state
   const [state, setState] = useState({
     title: '',
-    content: '',
     user: ''
-  })
+  });
+
+  const [content, setContent] = useState('');
+
+  // rich text editor handle change
+  const handleContent = event => {
+    console.log(event);
+    setContent(event);
+  };
 
   // destructure values from state
-  const { title, content, user } = state
+  const { title, user } = state;
 
   // First way : Arrow function
   // Create the event handler function
@@ -78,13 +87,13 @@ const Create = () => {
         <div className='form-group'>
           <label className='text-muted'>Content</label>
           {/* <input value={state.content} type="text" className="form-control" placeholder="Write something" required /> */}
-          <textarea
-            onChange={handleChange('content')}
+          <ReactQuill
+            onChange={handleContent}
             value={content}
-            type='text'
-            className='form-control'
-            placeholder='Post title'
-            required
+            theme="bubble"
+            className='pb-5 mb-3'
+            placeholder='Write something..'
+            style={{ border: '1px solid #313' }}
           />
         </div>
 
