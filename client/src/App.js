@@ -3,6 +3,7 @@ import Nav from './Nav';
 import {Link} from 'react-router-dom';
 // Promise based http client for Node.js
 import axios from 'axios';
+import renderHTML from 'react-render-html';
 // Arrow function: Parenthesis will word only with one statement otherwise we need to use brackets.
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -56,7 +57,7 @@ const App = () => {
                   <h2>{post.title}</h2>
                 </Link>
 
-                <p className="lead">{post.content.substring(0, 100)}</p>
+                <div className="lead pt-3">{renderHTML(post.content.substring(0, 100))}</div>
                 <p>
                   Author <span className="badge">{post.user}</span> Published on{''}
                   <span className = "badge">{new Date(post.createdAt).toLocaleString()}</span>

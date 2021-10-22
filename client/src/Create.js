@@ -50,9 +50,10 @@ const Create = () => {
       .then(response => {
         console.log(response)
         //empty state
-        setState({ ...state, title: '', content: '', user: '' })
+        setState({ ...state, title: '', user: '' });
+        setContent('');
         //show success alert
-        alert(`Post titled ${response.data.title} is created`)
+        alert(`Post titled ${response.data.title} is created`);
       })
       .catch(error => {
         console.log(error.response)
