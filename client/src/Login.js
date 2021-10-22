@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import Nav from './Nav'
-import {authenticate} from './helpers'
+import {authenticate, getUser} from './helpers'
 
 const Login = (props) => {
   // create a state
@@ -12,6 +12,11 @@ const Login = (props) => {
   })
 
   const { name, password } = state // destructure values from state
+
+  // Prevent access to the login page when we are already logged in and redirect to the home page
+  useEffect(() => {
+    getUser() && props.history.push('/');
+  }, []);
 
   // First way : Arrow function
   // Create the event handler function

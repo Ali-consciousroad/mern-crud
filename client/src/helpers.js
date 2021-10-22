@@ -39,7 +39,7 @@ export const logout = next => {
     if(window !== 'undefined') {
         //console.log('authenticate', response)
         sessionStorage.removeItem('token');
-        sessionStorage.setItem('user');
+        sessionStorage.removeItem('user');
     }
     next();
 };
