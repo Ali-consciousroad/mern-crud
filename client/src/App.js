@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 // Promise based http client for Node.js
 import axios from 'axios';
 import renderHTML from 'react-render-html';
+import {getUser} from './helpers'
 // Arrow function: Parenthesis will word only with one statement otherwise we need to use brackets.
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -63,16 +64,19 @@ const App = () => {
                   <span className = "badge">{new Date(post.createdAt).toLocaleString()}</span>
                 </p>
               </div>
-              <div className = "col-md-2">
-                <Link to={`/post/update/${post.slug}`} className="btn btn-sm btn-outline-warning">
-                  Update
-                </Link>
-                <button
-                  onClick={() => deleteConfirm(post.slug)}
-                  className="btn btn-sm btn-outline-danger ml-1">
-                  Delete
-                </button>
-              </div>
+
+              {getUser() && (
+                <div className = "col-md-2">
+                  <Link to={`/post/update/${post.slug}`} className="btn btn-sm btn-outline-warning">
+                    Update
+                  </Link>
+                  <button
+                    onClick={() => deleteConfirm(post.slug)}
+                    className="btn btn-sm btn-outline-danger ml-1">
+                    Delete
+                  </button>
+              </div>)}
+
             </div>
           </div>
         </div>
