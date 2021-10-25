@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken')
-const expressJwt = require('express-jwt')
+const jwt = require('jsonwebtoken');
+const expressJwt = require('express-jwt');
 
 // generate token and send to client/react if the password is right
 // otherwise send an error message
@@ -11,6 +11,12 @@ exports.login = (req, res) => {
     } else {
         return res.status(400).json({
             error: 'Incorrect password!'
-        })
+        });
     }
-}
+};
+
+exports.requireSignin = expressJwt({
+    secret: process.env.JWT_SECRET, 
+    algorithms: ["HS256"], // added later
+    userProperty: "auth",
+});
