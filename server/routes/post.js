@@ -20,7 +20,7 @@ router.get('/secret', requireSignin, (req, res) => {
     res.json({
         data: 'eqfsfsdfsdf'
         // Not working for the following line on Postman 
-        // data: req.user.name
+        //data: req.user.name
     });
 });
 
