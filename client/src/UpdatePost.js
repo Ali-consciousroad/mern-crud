@@ -7,7 +7,6 @@ import 'react-quill/dist/quill.bubble.css'
 const UpdatePost = props => {
   const [state, setState] = useState({
     title: '',
-    content: '',
     slug: '',
     user: ''
   })
