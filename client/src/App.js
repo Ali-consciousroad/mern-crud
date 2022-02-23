@@ -64,7 +64,7 @@ const App = () => {
                   <span className = "badge">{new Date(post.createdAt).toLocaleString()}</span>
                 </p>
               </div>
-
+              {/* Show the delete and update button only if we are logged in */}
               {getUser() && (
                 <div className = "col-md-2">
                   <Link to={`/post/update/${post.slug}`} className="btn btn-sm btn-outline-warning">
