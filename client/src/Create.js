@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import Nav from './Nav'
-import ReactQuill from 'react-quill'
-import { getUser, getToken } from './helpers'
-import 'react-quill/dist/quill.bubble.css'
+import React, { useState } from 'react';
+import axios from 'axios';
+import Nav from './Nav';
+import ReactQuill from 'react-quill';
+import { getUser, getToken } from './helpers';
+import 'react-quill/dist/quill.bubble.css';
 
 // Arrow function: Parenthesis will word only with one statement otherwise we need to use brackets.
 const Create = () => {
@@ -44,12 +44,13 @@ const Create = () => {
   */
 
   const handleSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
     /*console.table({title, content, user});*/
     axios
       .post(
-        `${process.env.REACT_APP_API}/post`,
-        { title, content, user },
+        `${process.env.REACT_APP_API}/post`, 
+      { title, content, user },
+
         {
           headers: {
             authorization: `Bearer ${getToken()}`
@@ -57,7 +58,7 @@ const Create = () => {
         }
       )
       .then(response => {
-        console.log(response)
+        console.log(response);
         //empty state
         setState({ ...state, title: '', user: '' })
         setContent('')

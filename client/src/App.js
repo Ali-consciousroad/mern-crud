@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Nav from './Nav'
 import { Link } from 'react-router-dom'
 // Promise based http client for Node.js
-import axios from 'axios'
-import renderHTML from 'react-render-html'
-import { getUser, getToken } from './helpers'
+import axios from 'axios';
+import renderHTML from 'react-render-html';
+import {getUser, getToken} from './helpers'
 // Arrow function: Parenthesis will word only with one statement otherwise we need to use brackets.
 const App = () => {
   const [posts, setPosts] = useState([])
@@ -32,18 +32,19 @@ const App = () => {
 
   const deletePost = slug => {
     //console.log('delete', slug, ' post');
-    axios
-      .delete(`${process.env.REACT_APP_API}/post/${slug}`, {
-        headers: {
-          authorization: `Bearer ${getToken()}`
-        }
-      })
-      .then(response => {
-        alert(response.data.message)
-        fetchPosts()
-      })
-      .catch(error => alert('Error deleting post'))
-  }
+
+    axios.delete(`${process.env.REACT_APP_API}/post/${slug}`,
+    {
+      headers: {
+        authorization: `Bearer ${getToken()}`
+      }
+    })
+    .then(response => {
+      alert(response.data.message);
+      fetchPosts();
+    })
+    .catch(error => alert('Error deleting post'));
+  };
 
   return (
     // pb -> Use the padding only at the botto m
