@@ -16,12 +16,11 @@ router.get('/post/:slug', read);
 router.put('/post/:slug', requireSignin, update);
 router.delete('/post/:slug', requireSignin, remove);
 
-router.get('/secret', requireSignin, (req, res) => {
+/*router.get('/secret', requireSignin, (req, res) => {
     res.json({
-        data: 'eqfsfsdfsdf'
-        // Not working for the following line on Postman 
-        //data: req.user.name
+        data: req.user.name // Can't get the req.user.name value on Postman!
     });
 });
+*/
 
 module.exports = router;
